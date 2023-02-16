@@ -4,8 +4,6 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Consumption View for SPFLI'
 
-@OData.publish: true
-
 @ObjectModel.updateEnabled: true
 
 @UI.headerInfo: {
