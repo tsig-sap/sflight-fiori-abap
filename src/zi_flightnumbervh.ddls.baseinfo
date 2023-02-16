@@ -3,13 +3,10 @@
 {
 "FROM":
 [
-"SPFLI"
+"ZI_FLIGHTSCHEDULE"
 ],
 "ASSOCIATED":
-[
-"ZI_AIRLINE",
-"ZI_FLIGHT"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":
