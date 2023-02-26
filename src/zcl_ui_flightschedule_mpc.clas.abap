@@ -24,6 +24,21 @@ public section.
   types:
    TT_I_CURRENCYTYPE type standard table of TS_I_CURRENCYTYPE .
   types:
+    begin of TS_ZC_FLIGHTTYPE.
+      include type ZC_FLIGHT.
+  types:
+    end of TS_ZC_FLIGHTTYPE .
+  types:
+   TT_ZC_FLIGHTTYPE type standard table of TS_ZC_FLIGHTTYPE .
+  types:
+    begin of TS_ZC_FLIGHTCOUNTERPERYEARTYPE.
+      include type ZC_FLIGHTCOUNTERPERYEAR.
+  types:
+      generated_id type string,
+    end of TS_ZC_FLIGHTCOUNTERPERYEARTYPE .
+  types:
+   TT_ZC_FLIGHTCOUNTERPERYEARTYPE type standard table of TS_ZC_FLIGHTCOUNTERPERYEARTYPE .
+  types:
     begin of TS_ZC_FLIGHTSCHEDULETYPE.
       include type ZC_FLIGHTSCHEDULE.
   types:
@@ -46,13 +61,6 @@ public section.
   types:
    TT_ZI_BOOKINGTYPE type standard table of TS_ZI_BOOKINGTYPE .
   types:
-    begin of TS_ZI_FLIGHTTYPE.
-      include type ZI_FLIGHT.
-  types:
-    end of TS_ZI_FLIGHTTYPE .
-  types:
-   TT_ZI_FLIGHTTYPE type standard table of TS_ZI_FLIGHTTYPE .
-  types:
     begin of TS_ZI_FLIGHTNUMBERVHTYPE.
       include type ZI_FLIGHTNUMBERVH.
   types:
@@ -66,15 +74,24 @@ public section.
     end of TS_ZI_TICKETTYPE .
   types:
    TT_ZI_TICKETTYPE type standard table of TS_ZI_TICKETTYPE .
+  types:
+    begin of TS_ZI_VH_GEOCITYTYPE.
+      include type ZI_VH_GEOCITY.
+  types:
+    end of TS_ZI_VH_GEOCITYTYPE .
+  types:
+   TT_ZI_VH_GEOCITYTYPE type standard table of TS_ZI_VH_GEOCITYTYPE .
 
   constants GC_I_COUNTRYSRCHHELPTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'I_CountrySrchHelpType' ##NO_TEXT.
   constants GC_I_CURRENCYTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'I_CurrencyType' ##NO_TEXT.
+  constants GC_ZC_FLIGHTCOUNTERPERYEARTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZC_FlightCounterPerYearType' ##NO_TEXT.
   constants GC_ZC_FLIGHTSCHEDULETYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZC_FlightScheduleType' ##NO_TEXT.
+  constants GC_ZC_FLIGHTTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZC_FlightType' ##NO_TEXT.
   constants GC_ZI_AIRLINETYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_AirlineType' ##NO_TEXT.
   constants GC_ZI_BOOKINGTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_BookingType' ##NO_TEXT.
   constants GC_ZI_FLIGHTNUMBERVHTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_FlightNumberVHType' ##NO_TEXT.
-  constants GC_ZI_FLIGHTTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_FlightType' ##NO_TEXT.
   constants GC_ZI_TICKETTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_TicketType' ##NO_TEXT.
+  constants GC_ZI_VH_GEOCITYTYPE type /IWBEP/IF_MGW_MED_ODATA_TYPES=>TY_E_MED_ENTITY_NAME value 'ZI_VH_GeoCityType' ##NO_TEXT.
 
   methods DEFINE
     redefinition .
@@ -143,7 +160,7 @@ get_last_modified_rds_4( ).
 *&---------------------------------------------------------------------*
 
 
-  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20230216140014'.                  "#EC NOTEXT
+  CONSTANTS: lc_gen_date_time TYPE timestamp VALUE '20230226053702'.                  "#EC NOTEXT
  DATA: lv_rds_last_modified TYPE timestamp .
   rv_last_modified = super->get_last_modified( ).
   IF rv_last_modified LT lc_gen_date_time.
@@ -168,7 +185,7 @@ get_last_modified_rds_4( ).
 *   4
 *&---------------------------------------------------------------------*
 *    @@TYPE_SWITCH:
-    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20230216140015'.
+    CONSTANTS: co_gen_date_time TYPE timestamp VALUE '20230226053703'.
     TRY.
         rv_last_modified_rds = CAST cl_sadl_gw_model_exposure( if_sadl_gw_model_exposure_data~get_model_exposure( ) )->get_last_modified( ).
       CATCH cx_root ##CATCH_ALL.
@@ -181,18 +198,20 @@ get_last_modified_rds_4( ).
 
 
   method IF_SADL_GW_MODEL_EXPOSURE_DATA~GET_MODEL_EXPOSURE.
-    CONSTANTS: co_gen_timestamp TYPE timestamp VALUE '20230216140015'.
+    CONSTANTS: co_gen_timestamp TYPE timestamp VALUE '20230226053703'.
     DATA(lv_sadl_xml) =
                |<?xml version="1.0" encoding="utf-16"?>|  &
                |<sadl:definition xmlns:sadl="http://sap.com/sap.nw.f.sadl" syntaxVersion="" >|  &
                | <sadl:dataSource type="CDS" name="I_COUNTRYSRCHHELP" binding="I_COUNTRYSRCHHELP" />|  &
                | <sadl:dataSource type="CDS" name="I_CURRENCY" binding="I_CURRENCY" />|  &
+               | <sadl:dataSource type="CDS" name="ZC_FLIGHT" binding="ZC_FLIGHT" />|  &
+               | <sadl:dataSource type="CDS" name="ZC_FLIGHTCOUNTERPERYEAR" binding="ZC_FLIGHTCOUNTERPERYEAR" />|  &
                | <sadl:dataSource type="CDS" name="ZC_FLIGHTSCHEDULE" binding="ZC_FLIGHTSCHEDULE" />|  &
                | <sadl:dataSource type="CDS" name="ZI_AIRLINE" binding="ZI_AIRLINE" />|  &
                | <sadl:dataSource type="CDS" name="ZI_BOOKING" binding="ZI_BOOKING" />|  &
-               | <sadl:dataSource type="CDS" name="ZI_FLIGHT" binding="ZI_FLIGHT" />|  &
                | <sadl:dataSource type="CDS" name="ZI_FLIGHTNUMBERVH" binding="ZI_FLIGHTNUMBERVH" />|  &
                | <sadl:dataSource type="CDS" name="ZI_TICKET" binding="ZI_TICKET" />|  &
+               | <sadl:dataSource type="CDS" name="ZI_VH_GEOCITY" binding="ZI_VH_GEOCITY" />|  &
                |<sadl:resultSet>|  &
                |<sadl:structure name="I_CountrySrchHelp" dataSource="I_COUNTRYSRCHHELP" maxEditMode="RO" exposure="TRUE" >|  &
                | <sadl:query name="SADL_QUERY">|  &
@@ -202,11 +221,20 @@ get_last_modified_rds_4( ).
                | <sadl:query name="SADL_QUERY">|  &
                | </sadl:query>|  &
                |</sadl:structure>|  &
+               |<sadl:structure name="ZC_Flight" dataSource="ZC_FLIGHT" maxEditMode="RO" exposure="TRUE" >|  &
+               | <sadl:query name="SADL_QUERY">|  &
+               | </sadl:query>|  &
+               |</sadl:structure>|  &
+               |<sadl:structure name="ZC_FlightCounterPerYear" dataSource="ZC_FLIGHTCOUNTERPERYEAR" maxEditMode="RO" exposure="TRUE" >|  &
+               | <sadl:query name="SADL_QUERY">|  &
+               | </sadl:query>|  &
+               |</sadl:structure>|  &
                |<sadl:structure name="ZC_FlightSchedule" dataSource="ZC_FLIGHTSCHEDULE" maxEditMode="RO" exposure="TRUE" >|  &
                | <sadl:query name="SADL_QUERY">|  &
                | </sadl:query>|  &
                | <sadl:association name="TO_AIRLINE" binding="_AIRLINE" target="ZI_Airline" cardinality="one" />|  &
-               | <sadl:association name="TO_FLIGHT" binding="_FLIGHT" target="ZI_Flight" cardinality="oneToMany" />|  &
+               | <sadl:association name="TO_FLIGHT" binding="_FLIGHT" target="ZC_Flight" cardinality="zeroToMany" />|  &
+               | <sadl:association name="TO_FLIGHTCOUNTERPERYEAR" binding="_FLIGHTCOUNTERPERYEAR" target="ZC_FlightCounterPerYear" cardinality="zeroToMany" />|  &
                |</sadl:structure>|  &
                |<sadl:structure name="ZI_Airline" dataSource="ZI_AIRLINE" maxEditMode="RO" exposure="TRUE" >|  &
                | <sadl:query name="SADL_QUERY">|  &
@@ -217,16 +245,16 @@ get_last_modified_rds_4( ).
                | </sadl:query>|  &
                | <sadl:association name="TO_CURRENCY" binding="_CURRENCY" target="I_Currency" cardinality="zeroToOne" />|  &
                |</sadl:structure>|  &
-               |<sadl:structure name="ZI_Flight" dataSource="ZI_FLIGHT" maxEditMode="RO" exposure="TRUE" >|  &
-               | <sadl:query name="SADL_QUERY">|  &
-               | </sadl:query>|  &
-               | <sadl:association name="TO_BOOK" binding="_BOOK" target="ZI_Booking" cardinality="oneToMany" />|  &
-               |</sadl:structure>|  &
                |<sadl:structure name="ZI_FlightNumberVH" dataSource="ZI_FLIGHTNUMBERVH" maxEditMode="RO" exposure="TRUE" >|  &
                | <sadl:query name="SADL_QUERY">|  &
                | </sadl:query>|  &
                |</sadl:structure>|  &
-               |<sadl:structure name="ZI_Ticket" dataSource="ZI_TICKET" maxEditMode="RO" exposure="TRUE" >|  &
+               |<sadl:structure name="ZI_Ticket" dataSource="ZI_TICKET" maxEditMode="RO" exposure="TRUE" >| .
+      lv_sadl_xml = |{ lv_sadl_xml }| &
+               | <sadl:query name="SADL_QUERY">|  &
+               | </sadl:query>|  &
+               |</sadl:structure>|  &
+               |<sadl:structure name="ZI_VH_GeoCity" dataSource="ZI_VH_GEOCITY" maxEditMode="RO" exposure="TRUE" >|  &
                | <sadl:query name="SADL_QUERY">|  &
                | </sadl:query>|  &
                |</sadl:structure>|  &
