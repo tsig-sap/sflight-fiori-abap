@@ -3,7 +3,7 @@
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Interface View for SBOOK'
-define view ZI_BOOKING_V2
+define view ZI_Booking_V2
   as select from sbook
   association [0..1] to I_Currency as _Currency on  $projection.ForeignCurrency = _Currency.Currency
                                                 and $projection.LocalCurrency   = _Currency.Currency

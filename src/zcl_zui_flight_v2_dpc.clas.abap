@@ -42,7 +42,7 @@ protected section.
 
   data mo_injection type ref to /IWBEP/IF_SB_GEN_DPC_INJECTION .
 
-  methods ZI_TICKET_V2_UPDATE_ENTITY
+  methods ZI_AIRLINE_UPDATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -52,11 +52,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_TICKET_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_AIRLINETYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_TICKET_V2_GET_ENTITYSET
+  methods ZI_AIRLINE_GET_ENTITYSET
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -70,12 +70,12 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZI_TICKET_V2TYPE
+      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZI_AIRLINETYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_TICKET_V2_GET_ENTITY
+  methods ZI_AIRLINE_GET_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -85,12 +85,12 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_TICKET_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_AIRLINETYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_TICKET_V2_DELETE_ENTITY
+  methods ZI_AIRLINE_DELETE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -101,7 +101,7 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_TICKET_V2_CREATE_ENTITY
+  methods ZI_AIRLINE_CREATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -111,11 +111,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_TICKET_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_AIRLINETYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHT_V2_UPDATE_ENTITY
+  methods ZC_VH_FLIGHTNUMB_UPDATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -125,11 +125,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHT_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_VH_FLIGHTNUMBERTYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHT_V2_GET_ENTITYSET
+  methods ZC_VH_FLIGHTNUMB_GET_ENTITYSET
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -143,12 +143,12 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZI_FLIGHT_V2TYPE
+      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZC_VH_FLIGHTNUMBERTYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHT_V2_GET_ENTITY
+  methods ZC_VH_FLIGHTNUMB_GET_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -158,12 +158,12 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHT_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_VH_FLIGHTNUMBERTYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHT_V2_DELETE_ENTITY
+  methods ZC_VH_FLIGHTNUMB_DELETE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -174,7 +174,7 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHT_V2_CREATE_ENTITY
+  methods ZC_VH_FLIGHTNUMB_CREATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -184,11 +184,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHT_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_VH_FLIGHTNUMBERTYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHTSCHEDUL_UPDATE_ENTITY
+  methods ZC_FLIGHT_V2_UPDATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -198,11 +198,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHTSCHEDULE_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_FLIGHT_V2TYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHTSCHEDUL_GET_ENTITYSET
+  methods ZC_FLIGHT_V2_GET_ENTITYSET
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -216,12 +216,12 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZI_FLIGHTSCHEDULE_V2TYPE
+      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZC_FLIGHT_V2TYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHTSCHEDUL_GET_ENTITY
+  methods ZC_FLIGHT_V2_GET_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -231,12 +231,12 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHTSCHEDULE_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_FLIGHT_V2TYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHTSCHEDUL_DELETE_ENTITY
+  methods ZC_FLIGHT_V2_DELETE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -247,7 +247,7 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_FLIGHTSCHEDUL_CREATE_ENTITY
+  methods ZC_FLIGHT_V2_CREATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -257,11 +257,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_FLIGHTSCHEDULE_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_FLIGHT_V2TYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_BOOKING_V2_UPDATE_ENTITY
+  methods ZC_BOOKING_V2_UPDATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -271,11 +271,11 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_BOOKING_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_BOOKING_V2TYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_BOOKING_V2_GET_ENTITYSET
+  methods ZC_BOOKING_V2_GET_ENTITYSET
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -289,12 +289,12 @@ protected section.
       !IV_SEARCH_STRING type STRING
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITYSET optional
     exporting
-      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZI_BOOKING_V2TYPE
+      !ET_ENTITYSET type ZCL_ZUI_FLIGHT_V2_MPC=>TT_ZC_BOOKING_V2TYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_CONTEXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_BOOKING_V2_GET_ENTITY
+  methods ZC_BOOKING_V2_GET_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -304,12 +304,12 @@ protected section.
       !IO_TECH_REQUEST_CONTEXT type ref to /IWBEP/IF_MGW_REQ_ENTITY optional
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_BOOKING_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_BOOKING_V2TYPE
       !ES_RESPONSE_CONTEXT type /IWBEP/IF_MGW_APPL_SRV_RUNTIME=>TY_S_MGW_RESPONSE_ENTITY_CNTXT
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_BOOKING_V2_DELETE_ENTITY
+  methods ZC_BOOKING_V2_DELETE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -320,7 +320,7 @@ protected section.
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
-  methods ZI_BOOKING_V2_CREATE_ENTITY
+  methods ZC_BOOKING_V2_CREATE_ENTITY
     importing
       !IV_ENTITY_NAME type STRING
       !IV_ENTITY_SET_NAME type STRING
@@ -330,7 +330,7 @@ protected section.
       !IT_NAVIGATION_PATH type /IWBEP/T_MGW_NAVIGATION_PATH
       !IO_DATA_PROVIDER type ref to /IWBEP/IF_MGW_ENTRY_PROVIDER optional
     exporting
-      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZI_BOOKING_V2TYPE
+      !ER_ENTITY type ZCL_ZUI_FLIGHT_V2_MPC=>TS_ZC_BOOKING_V2TYPE
     raising
       /IWBEP/CX_MGW_BUSI_EXCEPTION
       /IWBEP/CX_MGW_TECH_EXCEPTION .
@@ -442,7 +442,7 @@ CLASS ZCL_ZUI_FLIGHT_V2_DPC IMPLEMENTATION.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_CRT_ENTITY_BASE
-*&* This class has been generated on 11.02.2023 07:25:59 in client 100
+*&* This class has been generated on 02.03.2023 17:17:27 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -450,10 +450,10 @@ CLASS ZCL_ZUI_FLIGHT_V2_DPC IMPLEMENTATION.
 *&-----------------------------------------------------------------------------------------------*
 
  DATA i_currency_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_i_currencytype.
- DATA zi_ticket_v2_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_ticket_v2type.
- DATA zi_booking_v2_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_booking_v2type.
- DATA zi_flightschedul_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flightschedule_v2type.
- DATA zi_flight_v2_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flight_v2type.
+ DATA zi_airline_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_airlinetype.
+ DATA zc_booking_v2_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_booking_v2type.
+ DATA zc_flight_v2_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_flight_v2type.
+ DATA zc_vh_flightnumb_create_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_vh_flightnumbertype.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
@@ -483,11 +483,11 @@ CASE lv_entityset_name.
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_TICKET_V2
+*             EntitySet -  ZI_Airline
 *-------------------------------------------------------------------------*
-     WHEN 'ZI_TICKET_V2'.
+     WHEN 'ZI_Airline'.
 *     Call the entity set generated method
-    zi_ticket_v2_create_entity(
+    zi_airline_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -495,22 +495,22 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = zi_ticket_v2_create_entity
+       	 IMPORTING er_entity          = zi_airline_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = zi_ticket_v2_create_entity
+        is_data = zi_airline_create_entity
       CHANGING
         cr_data = er_entity
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_BOOKING_V2
+*             EntitySet -  ZC_Booking_V2
 *-------------------------------------------------------------------------*
-     WHEN 'ZI_BOOKING_V2'.
+     WHEN 'ZC_Booking_V2'.
 *     Call the entity set generated method
-    zi_booking_v2_create_entity(
+    zc_booking_v2_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -518,22 +518,22 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = zi_booking_v2_create_entity
+       	 IMPORTING er_entity          = zc_booking_v2_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = zi_booking_v2_create_entity
+        is_data = zc_booking_v2_create_entity
       CHANGING
         cr_data = er_entity
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHTSCHEDULE_V2
+*             EntitySet -  ZC_Flight_V2
 *-------------------------------------------------------------------------*
-     WHEN 'ZI_FLIGHTSCHEDULE_V2'.
+     WHEN 'ZC_Flight_V2'.
 *     Call the entity set generated method
-    zi_flightschedul_create_entity(
+    zc_flight_v2_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -541,22 +541,22 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = zi_flightschedul_create_entity
+       	 IMPORTING er_entity          = zc_flight_v2_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = zi_flightschedul_create_entity
+        is_data = zc_flight_v2_create_entity
       CHANGING
         cr_data = er_entity
    ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHT_V2
+*             EntitySet -  ZC_VH_FlightNumber
 *-------------------------------------------------------------------------*
-     WHEN 'ZI_FLIGHT_V2'.
+     WHEN 'ZC_VH_FlightNumber'.
 *     Call the entity set generated method
-    zi_flight_v2_create_entity(
+    zc_vh_flightnumb_create_entity(
          EXPORTING iv_entity_name     = iv_entity_name
                    iv_entity_set_name = iv_entity_set_name
                    iv_source_name     = iv_source_name
@@ -564,12 +564,12 @@ CASE lv_entityset_name.
                    it_key_tab         = it_key_tab
                    it_navigation_path = it_navigation_path
                    io_tech_request_context = io_tech_request_context
-       	 IMPORTING er_entity          = zi_flight_v2_create_entity
+       	 IMPORTING er_entity          = zc_vh_flightnumb_create_entity
     ).
 *     Send specific entity data to the caller interfaces
     copy_data_to_ref(
       EXPORTING
-        is_data = zi_flight_v2_create_entity
+        is_data = zc_vh_flightnumb_create_entity
       CHANGING
         cr_data = er_entity
    ).
@@ -593,7 +593,7 @@ ENDCASE.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~DELETE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_DEL_ENTITY_BASE
-*&* This class has been generated on 11.02.2023 07:25:59 in client 100
+*&* This class has been generated on 02.03.2023 17:17:27 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -606,11 +606,11 @@ lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_TICKET_V2
+*             EntitySet -  ZI_Airline
 *-------------------------------------------------------------------------*
-      when 'ZI_TICKET_V2'.
+      when 'ZI_Airline'.
 *     Call the entity set generated method
-     zi_ticket_v2_delete_entity(
+     zi_airline_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -634,11 +634,11 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_BOOKING_V2
+*             EntitySet -  ZC_Booking_V2
 *-------------------------------------------------------------------------*
-      when 'ZI_BOOKING_V2'.
+      when 'ZC_Booking_V2'.
 *     Call the entity set generated method
-     zi_booking_v2_delete_entity(
+     zc_booking_v2_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -648,11 +648,11 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHTSCHEDULE_V2
+*             EntitySet -  ZC_Flight_V2
 *-------------------------------------------------------------------------*
-      when 'ZI_FLIGHTSCHEDULE_V2'.
+      when 'ZC_Flight_V2'.
 *     Call the entity set generated method
-     zi_flightschedul_delete_entity(
+     zc_flight_v2_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -662,11 +662,11 @@ CASE lv_entityset_name.
      ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHT_V2
+*             EntitySet -  ZC_VH_FlightNumber
 *-------------------------------------------------------------------------*
-      when 'ZI_FLIGHT_V2'.
+      when 'ZC_VH_FlightNumber'.
 *     Call the entity set generated method
-     zi_flight_v2_delete_entity(
+     zc_vh_flightnumb_delete_entity(
           EXPORTING iv_entity_name     = iv_entity_name
                     iv_entity_set_name = iv_entity_set_name
                     iv_source_name     = iv_source_name
@@ -697,7 +697,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITY.
 *&-----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_GETENTITY_BASE
-*&* This class has been generated  on 11.02.2023 07:25:59 in client 100
+*&* This class has been generated  on 02.03.2023 17:17:27 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -705,10 +705,10 @@ CASE lv_entityset_name.
 *&-----------------------------------------------------------------------------------------------*
 
  DATA i_currency_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_i_currencytype.
- DATA zi_booking_v2_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_booking_v2type.
- DATA zi_flightschedul_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flightschedule_v2type.
- DATA zi_flight_v2_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flight_v2type.
- DATA zi_ticket_v2_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_ticket_v2type.
+ DATA zc_booking_v2_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_booking_v2type.
+ DATA zc_flight_v2_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_flight_v2type.
+ DATA zc_vh_flightnumb_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_vh_flightnumbertype.
+ DATA zi_airline_get_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_airlinetype.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data.       "#EC NEEDED
 
@@ -744,26 +744,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_BOOKING_V2
+*             EntitySet -  ZC_Booking_V2
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_BOOKING_V2'.
+      WHEN 'ZC_Booking_V2'.
 *     Call the entity set generated method
-          zi_booking_v2_get_entity(
+          zc_booking_v2_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_booking_v2_get_entity
+             	 IMPORTING er_entity          = zc_booking_v2_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF zi_booking_v2_get_entity IS NOT INITIAL.
+        IF zc_booking_v2_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_booking_v2_get_entity
+              is_data = zc_booking_v2_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -772,26 +772,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHTSCHEDULE_V2
+*             EntitySet -  ZC_Flight_V2
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_FLIGHTSCHEDULE_V2'.
+      WHEN 'ZC_Flight_V2'.
 *     Call the entity set generated method
-          zi_flightschedul_get_entity(
+          zc_flight_v2_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_flightschedul_get_entity
+             	 IMPORTING er_entity          = zc_flight_v2_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF zi_flightschedul_get_entity IS NOT INITIAL.
+        IF zc_flight_v2_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_flightschedul_get_entity
+              is_data = zc_flight_v2_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -800,26 +800,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHT_V2
+*             EntitySet -  ZC_VH_FlightNumber
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_FLIGHT_V2'.
+      WHEN 'ZC_VH_FlightNumber'.
 *     Call the entity set generated method
-          zi_flight_v2_get_entity(
+          zc_vh_flightnumb_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_flight_v2_get_entity
+             	 IMPORTING er_entity          = zc_vh_flightnumb_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF zi_flight_v2_get_entity IS NOT INITIAL.
+        IF zc_vh_flightnumb_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_flight_v2_get_entity
+              is_data = zc_vh_flightnumb_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -828,26 +828,26 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_TICKET_V2
+*             EntitySet -  ZI_Airline
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_TICKET_V2'.
+      WHEN 'ZI_Airline'.
 *     Call the entity set generated method
-          zi_ticket_v2_get_entity(
+          zi_airline_get_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_ticket_v2_get_entity
+             	 IMPORTING er_entity          = zi_airline_get_entity
                          es_response_context = es_response_context
           ).
 
-        IF zi_ticket_v2_get_entity IS NOT INITIAL.
+        IF zi_airline_get_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_ticket_v2_get_entity
+              is_data = zi_airline_get_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -874,17 +874,17 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITYSET.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TMP_ENTITYSET_BASE
-*&* This class has been generated on 11.02.2023 07:25:59 in client 100
+*&* This class has been generated on 02.03.2023 17:17:27 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZUI_FLIGHT_V2_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
  DATA i_currency_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_i_currencytype.
- DATA zi_booking_v2_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zi_booking_v2type.
- DATA zi_flightschedul_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zi_flightschedule_v2type.
- DATA zi_flight_v2_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zi_flight_v2type.
- DATA zi_ticket_v2_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zi_ticket_v2type.
+ DATA zc_booking_v2_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zc_booking_v2type.
+ DATA zc_flight_v2_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zc_flight_v2type.
+ DATA zc_vh_flightnumb_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zc_vh_flightnumbertype.
+ DATA zi_airline_get_entityset TYPE zcl_zui_flight_v2_mpc=>tt_zi_airlinetype.
  DATA lv_entityset_name TYPE string.
 
 lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
@@ -921,11 +921,11 @@ CASE lv_entityset_name.
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_BOOKING_V2
+*             EntitySet -  ZC_Booking_V2
 *-------------------------------------------------------------------------*
-   WHEN 'ZI_BOOKING_V2'.
+   WHEN 'ZC_Booking_V2'.
 *     Call the entity set generated method
-      zi_booking_v2_get_entityset(
+      zc_booking_v2_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -939,23 +939,23 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = zi_booking_v2_get_entityset
+         et_entityset = zc_booking_v2_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = zi_booking_v2_get_entityset
+          is_data = zc_booking_v2_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHTSCHEDULE_V2
+*             EntitySet -  ZC_Flight_V2
 *-------------------------------------------------------------------------*
-   WHEN 'ZI_FLIGHTSCHEDULE_V2'.
+   WHEN 'ZC_Flight_V2'.
 *     Call the entity set generated method
-      zi_flightschedul_get_entityset(
+      zc_flight_v2_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -969,23 +969,23 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = zi_flightschedul_get_entityset
+         et_entityset = zc_flight_v2_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = zi_flightschedul_get_entityset
+          is_data = zc_flight_v2_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHT_V2
+*             EntitySet -  ZC_VH_FlightNumber
 *-------------------------------------------------------------------------*
-   WHEN 'ZI_FLIGHT_V2'.
+   WHEN 'ZC_VH_FlightNumber'.
 *     Call the entity set generated method
-      zi_flight_v2_get_entityset(
+      zc_vh_flightnumb_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -999,23 +999,23 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = zi_flight_v2_get_entityset
+         et_entityset = zc_vh_flightnumb_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = zi_flight_v2_get_entityset
+          is_data = zc_vh_flightnumb_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
 
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_TICKET_V2
+*             EntitySet -  ZI_Airline
 *-------------------------------------------------------------------------*
-   WHEN 'ZI_TICKET_V2'.
+   WHEN 'ZI_Airline'.
 *     Call the entity set generated method
-      zi_ticket_v2_get_entityset(
+      zi_airline_get_entityset(
         EXPORTING
          iv_entity_name = iv_entity_name
          iv_entity_set_name = iv_entity_set_name
@@ -1029,13 +1029,13 @@ CASE lv_entityset_name.
          iv_search_string = iv_search_string
          io_tech_request_context = io_tech_request_context
        IMPORTING
-         et_entityset = zi_ticket_v2_get_entityset
+         et_entityset = zi_airline_get_entityset
          es_response_context = es_response_context
        ).
 *     Send specific entity data to the caller interface
       copy_data_to_ref(
         EXPORTING
-          is_data = zi_ticket_v2_get_entityset
+          is_data = zi_airline_get_entityset
         CHANGING
           cr_data = er_entityset
       ).
@@ -1101,14 +1101,6 @@ CASE lv_entityset_name.
 
 
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~PATCH_ENTITY.
-    CASE io_tech_request_context->get_entity_set_name( ).
-      WHEN 'ZI_TICKET_V2'
-      .
-        CAST /iwbep/if_mgw_appl_srv_runtime( if_sadl_gw_dpc_util~get_dpc( ) )->patch_entity(
-                       EXPORTING io_tech_request_context = io_tech_request_context
-                                 io_data_provider        = io_data_provider
-                       IMPORTING er_entity               = er_entity  ).
-      WHEN OTHERS.
         super->/iwbep/if_mgw_appl_srv_runtime~patch_entity(
                        EXPORTING io_tech_request_context = io_tech_request_context
                                  io_data_provider        = io_data_provider
@@ -1118,24 +1110,23 @@ CASE lv_entityset_name.
                                  it_key_tab              = it_key_tab
                                  it_navigation_path      = it_navigation_path
                        IMPORTING er_entity               = er_entity  ).
-    ENDCASE.
   endmethod.
 
 
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~UPDATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_UPD_ENTITY_BASE
-*&* This class has been generated on 11.02.2023 07:25:59 in client 100
+*&* This class has been generated on 02.03.2023 17:17:27 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
 *&*   generated methods inside the DPC provider subclass - ZCL_ZUI_FLIGHT_V2_DPC_EXT
 *&-----------------------------------------------------------------------------------------------*
 
- DATA zi_ticket_v2_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_ticket_v2type.
- DATA zi_flight_v2_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flight_v2type.
- DATA zi_flightschedul_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_flightschedule_v2type.
- DATA zi_booking_v2_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_booking_v2type.
+ DATA zi_airline_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zi_airlinetype.
+ DATA zc_vh_flightnumb_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_vh_flightnumbertype.
+ DATA zc_flight_v2_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_flight_v2type.
+ DATA zc_booking_v2_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_zc_booking_v2type.
  DATA i_currency_update_entity TYPE zcl_zui_flight_v2_mpc=>ts_i_currencytype.
  DATA lv_entityset_name TYPE string.
  DATA lr_entity TYPE REF TO data. "#EC NEEDED
@@ -1144,11 +1135,11 @@ lv_entityset_name = io_tech_request_context->get_entity_set_name( ).
 
 CASE lv_entityset_name.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_TICKET_V2
+*             EntitySet -  ZI_Airline
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_TICKET_V2'.
+      WHEN 'ZI_Airline'.
 *     Call the entity set generated method
-          zi_ticket_v2_update_entity(
+          zi_airline_update_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
@@ -1156,13 +1147,13 @@ CASE lv_entityset_name.
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_ticket_v2_update_entity
+             	 IMPORTING er_entity          = zi_airline_update_entity
           ).
-       IF zi_ticket_v2_update_entity IS NOT INITIAL.
+       IF zi_airline_update_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_ticket_v2_update_entity
+              is_data = zi_airline_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1171,11 +1162,11 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHT_V2
+*             EntitySet -  ZC_VH_FlightNumber
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_FLIGHT_V2'.
+      WHEN 'ZC_VH_FlightNumber'.
 *     Call the entity set generated method
-          zi_flight_v2_update_entity(
+          zc_vh_flightnumb_update_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
@@ -1183,13 +1174,13 @@ CASE lv_entityset_name.
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_flight_v2_update_entity
+             	 IMPORTING er_entity          = zc_vh_flightnumb_update_entity
           ).
-       IF zi_flight_v2_update_entity IS NOT INITIAL.
+       IF zc_vh_flightnumb_update_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_flight_v2_update_entity
+              is_data = zc_vh_flightnumb_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1198,11 +1189,11 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_FLIGHTSCHEDULE_V2
+*             EntitySet -  ZC_Flight_V2
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_FLIGHTSCHEDULE_V2'.
+      WHEN 'ZC_Flight_V2'.
 *     Call the entity set generated method
-          zi_flightschedul_update_entity(
+          zc_flight_v2_update_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
@@ -1210,13 +1201,13 @@ CASE lv_entityset_name.
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_flightschedul_update_entity
+             	 IMPORTING er_entity          = zc_flight_v2_update_entity
           ).
-       IF zi_flightschedul_update_entity IS NOT INITIAL.
+       IF zc_flight_v2_update_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_flightschedul_update_entity
+              is_data = zc_flight_v2_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1225,11 +1216,11 @@ CASE lv_entityset_name.
           er_entity = lr_entity.
         ENDIF.
 *-------------------------------------------------------------------------*
-*             EntitySet -  ZI_BOOKING_V2
+*             EntitySet -  ZC_Booking_V2
 *-------------------------------------------------------------------------*
-      WHEN 'ZI_BOOKING_V2'.
+      WHEN 'ZC_Booking_V2'.
 *     Call the entity set generated method
-          zi_booking_v2_update_entity(
+          zc_booking_v2_update_entity(
                EXPORTING iv_entity_name     = iv_entity_name
                          iv_entity_set_name = iv_entity_set_name
                          iv_source_name     = iv_source_name
@@ -1237,13 +1228,13 @@ CASE lv_entityset_name.
                          it_key_tab         = it_key_tab
                          it_navigation_path = it_navigation_path
                          io_tech_request_context = io_tech_request_context
-             	 IMPORTING er_entity          = zi_booking_v2_update_entity
+             	 IMPORTING er_entity          = zc_booking_v2_update_entity
           ).
-       IF zi_booking_v2_update_entity IS NOT INITIAL.
+       IF zc_booking_v2_update_entity IS NOT INITIAL.
 *     Send specific entity data to the caller interface
           copy_data_to_ref(
             EXPORTING
-              is_data = zi_booking_v2_update_entity
+              is_data = zc_booking_v2_update_entity
             CHANGING
               cr_data = er_entity
           ).
@@ -1416,48 +1407,47 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
   method IF_SADL_GW_DPC_UTIL~GET_DPC.
     TYPES ty_I_CURRENCY_1 TYPE i_currency ##NEEDED. " reference for where-used list
     TYPES ty_I_CURRENCYTEXT_2 TYPE i_currencytext ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_BOOKING_V2_3 TYPE zi_booking_v2 ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_FLIGHTSCHEDULE_V2_4 TYPE zi_flightschedule_v2 ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_FLIGHT_V2_5 TYPE zi_flight_v2 ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_TICKET_V2_6 TYPE zi_ticket_v2 ##NEEDED. " reference for where-used list
+    TYPES ty_ZC_BOOKING_V2_3 TYPE zc_booking_v2 ##NEEDED. " reference for where-used list
+    TYPES ty_ZC_FLIGHT_V2_4 TYPE zc_flight_v2 ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_AIRLINE_5 TYPE zi_airline ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_FLIGHTNUMBERVH_6 TYPE zi_flightnumbervh ##NEEDED. " reference for where-used list
 
     DATA(lv_sadl_xml) =
                |<?xml version="1.0" encoding="utf-16"?>| &
                |<sadl:definition xmlns:sadl="http://sap.com/sap.nw.f.sadl" syntaxVersion="" >| &
                | <sadl:dataSource type="CDS" name="I_CURRENCY" binding="I_CURRENCY" />| &
-               | <sadl:dataSource type="CDS" name="ZI_BOOKING_V2" binding="ZI_BOOKING_V2" />| &
-               | <sadl:dataSource type="CDS" name="ZI_FLIGHTSCHEDULE_V2" binding="ZI_FLIGHTSCHEDULE_V2" />| &
-               | <sadl:dataSource type="CDS" name="ZI_FLIGHT_V2" binding="ZI_FLIGHT_V2" />| &
-               | <sadl:dataSource type="CDS" name="ZI_TICKET_V2" binding="ZI_TICKET_V2" />| &
+               | <sadl:dataSource type="CDS" name="ZC_BOOKING_V2" binding="ZC_BOOKING_V2" />| &
+               | <sadl:dataSource type="CDS" name="ZC_FLIGHT_V2" binding="ZC_FLIGHT_V2" />| &
+               | <sadl:dataSource type="CDS" name="ZC_VH_FLIGHTNUMBER" binding="ZC_VH_FLIGHTNUMBER" />| &
+               | <sadl:dataSource type="CDS" name="ZI_AIRLINE" binding="ZI_AIRLINE" />| &
                |<sadl:resultSet>| &
                |<sadl:structure name="I_Currency" dataSource="I_CURRENCY" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
                | </sadl:query>| &
                |</sadl:structure>| &
-               |<sadl:structure name="ZI_BOOKING_V2" dataSource="ZI_BOOKING_V2" maxEditMode="RO" exposure="TRUE" >| &
+               |<sadl:structure name="ZC_Booking_V2" dataSource="ZC_BOOKING_V2" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
                | </sadl:query>| &
                |</sadl:structure>| &
-               |<sadl:structure name="ZI_FLIGHTSCHEDULE_V2" dataSource="ZI_FLIGHTSCHEDULE_V2" maxEditMode="RO" exposure="TRUE" >| &
+               |<sadl:structure name="ZC_Flight_V2" dataSource="ZC_FLIGHT_V2" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
                | </sadl:query>| &
-               |</sadl:structure>| &
-               |<sadl:structure name="ZI_FLIGHT_V2" dataSource="ZI_FLIGHT_V2" maxEditMode="RO" exposure="TRUE" >| &
-               | <sadl:query name="SADL_QUERY">| &
-               | </sadl:query>| &
-               | <sadl:association name="TO_BOOK" binding="_BOOK" target="ZI_BOOKING_V2" cardinality="oneToMany" />| &
+               | <sadl:association name="TO_AIRLINE" binding="_AIRLINE" target="ZI_Airline" cardinality="one" />| &
+               | <sadl:association name="TO_BOOKING_V2" binding="_BOOKING_V2" target="ZC_Booking_V2" cardinality="zeroToMany" />| &
                | <sadl:association name="TO_CURRENCY" binding="_CURRENCY" target="I_Currency" cardinality="zeroToOne" />| &
-               | <sadl:association name="TO_FLIGHTSCHEDULE" binding="_FLIGHTSCHEDULE" target="ZI_FLIGHTSCHEDULE_V2" cardinality="one" />| &
-               | <sadl:association name="TO_TICKET" binding="_TICKET" target="ZI_TICKET_V2" cardinality="oneToMany" />| &
                |</sadl:structure>| &
-               |<sadl:structure name="ZI_TICKET_V2" dataSource="ZI_TICKET_V2" maxEditMode="RO" exposure="TRUE" >| &
+               |<sadl:structure name="ZC_VH_FlightNumber" dataSource="ZC_VH_FLIGHTNUMBER" maxEditMode="RO" exposure="TRUE" >| &
+               | <sadl:query name="SADL_QUERY">| &
+               | </sadl:query>| &
+               |</sadl:structure>| &
+               |<sadl:structure name="ZI_Airline" dataSource="ZI_AIRLINE" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
                | </sadl:query>| &
                |</sadl:structure>| &
                |</sadl:resultSet>| &
                |</sadl:definition>| .
     ro_dpc = cl_sadl_gw_dpc_factory=>create_for_sadl( iv_sadl_xml   = lv_sadl_xml
-               iv_timestamp         = 20230211002557
+               iv_timestamp         = 20230302101717
                iv_uuid              = 'ZUI_FLIGHT_V2'
                io_context           = me->mo_context ).
   endmethod.
@@ -1495,128 +1485,128 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
   endmethod.
 
 
-  method ZI_BOOKING_V2_CREATE_ENTITY.
+  method ZC_BOOKING_V2_CREATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->create_entity( EXPORTING io_data_provider        = io_data_provider
                                                              io_tech_request_context = io_tech_request_context
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_BOOKING_V2_DELETE_ENTITY.
+  method ZC_BOOKING_V2_DELETE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->delete_entity( io_tech_request_context ).
   endmethod.
 
 
-  method ZI_BOOKING_V2_GET_ENTITY.
+  method ZC_BOOKING_V2_GET_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->get_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                 IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_BOOKING_V2_GET_ENTITYSET.
+  method ZC_BOOKING_V2_GET_ENTITYSET.
     if_sadl_gw_dpc_util~get_dpc( )->get_entityset( EXPORTING io_tech_request_context = io_tech_request_context
                                                    IMPORTING et_data                 = et_entityset
                                                              es_response_context     = es_response_context ).
   endmethod.
 
 
-  method ZI_BOOKING_V2_UPDATE_ENTITY.
+  method ZC_BOOKING_V2_UPDATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->update_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                              io_data_provider        = io_data_provider
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHTSCHEDUL_CREATE_ENTITY.
+  method ZC_FLIGHT_V2_CREATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->create_entity( EXPORTING io_data_provider        = io_data_provider
                                                              io_tech_request_context = io_tech_request_context
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHTSCHEDUL_DELETE_ENTITY.
+  method ZC_FLIGHT_V2_DELETE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->delete_entity( io_tech_request_context ).
   endmethod.
 
 
-  method ZI_FLIGHTSCHEDUL_GET_ENTITY.
+  method ZC_FLIGHT_V2_GET_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->get_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                 IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHTSCHEDUL_GET_ENTITYSET.
+  method ZC_FLIGHT_V2_GET_ENTITYSET.
     if_sadl_gw_dpc_util~get_dpc( )->get_entityset( EXPORTING io_tech_request_context = io_tech_request_context
                                                    IMPORTING et_data                 = et_entityset
                                                              es_response_context     = es_response_context ).
   endmethod.
 
 
-  method ZI_FLIGHTSCHEDUL_UPDATE_ENTITY.
+  method ZC_FLIGHT_V2_UPDATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->update_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                              io_data_provider        = io_data_provider
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHT_V2_CREATE_ENTITY.
+  method ZC_VH_FLIGHTNUMB_CREATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->create_entity( EXPORTING io_data_provider        = io_data_provider
                                                              io_tech_request_context = io_tech_request_context
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHT_V2_DELETE_ENTITY.
+  method ZC_VH_FLIGHTNUMB_DELETE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->delete_entity( io_tech_request_context ).
   endmethod.
 
 
-  method ZI_FLIGHT_V2_GET_ENTITY.
+  method ZC_VH_FLIGHTNUMB_GET_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->get_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                 IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_FLIGHT_V2_GET_ENTITYSET.
+  method ZC_VH_FLIGHTNUMB_GET_ENTITYSET.
     if_sadl_gw_dpc_util~get_dpc( )->get_entityset( EXPORTING io_tech_request_context = io_tech_request_context
                                                    IMPORTING et_data                 = et_entityset
                                                              es_response_context     = es_response_context ).
   endmethod.
 
 
-  method ZI_FLIGHT_V2_UPDATE_ENTITY.
+  method ZC_VH_FLIGHTNUMB_UPDATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->update_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                              io_data_provider        = io_data_provider
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_TICKET_V2_CREATE_ENTITY.
+  method ZI_AIRLINE_CREATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->create_entity( EXPORTING io_data_provider        = io_data_provider
                                                              io_tech_request_context = io_tech_request_context
                                                    IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_TICKET_V2_DELETE_ENTITY.
+  method ZI_AIRLINE_DELETE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->delete_entity( io_tech_request_context ).
   endmethod.
 
 
-  method ZI_TICKET_V2_GET_ENTITY.
+  method ZI_AIRLINE_GET_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->get_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                 IMPORTING es_data                 = er_entity ).
   endmethod.
 
 
-  method ZI_TICKET_V2_GET_ENTITYSET.
+  method ZI_AIRLINE_GET_ENTITYSET.
     if_sadl_gw_dpc_util~get_dpc( )->get_entityset( EXPORTING io_tech_request_context = io_tech_request_context
                                                    IMPORTING et_data                 = et_entityset
                                                              es_response_context     = es_response_context ).
   endmethod.
 
 
-  method ZI_TICKET_V2_UPDATE_ENTITY.
+  method ZI_AIRLINE_UPDATE_ENTITY.
     if_sadl_gw_dpc_util~get_dpc( )->update_entity( EXPORTING io_tech_request_context = io_tech_request_context
                                                              io_data_provider        = io_data_provider
                                                    IMPORTING es_data                 = er_entity ).
