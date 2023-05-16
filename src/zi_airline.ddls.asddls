@@ -4,6 +4,8 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @VDM.viewType: #BASIC
 @EndUserText.label: 'Interface View for SCARR'
+@Analytics.dataCategory: #DIMENSION
+
 define view ZI_Airline
   as select from scarr
 {

@@ -807,7 +807,7 @@ CLASS ZCL_UI_FLIGHTSCHEDULE_DPC IMPLEMENTATION.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~CREATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_CRT_ENTITY_BASE
-*&* This class has been generated on 26.02.2023 12:37:06 in client 100
+*&* This class has been generated on 04.03.2023 07:16:21 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1078,7 +1078,7 @@ ENDCASE.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~DELETE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_DEL_ENTITY_BASE
-*&* This class has been generated on 26.02.2023 12:37:06 in client 100
+*&* This class has been generated on 04.03.2023 07:16:21 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1252,7 +1252,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITY.
 *&-----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_GETENTITY_BASE
-*&* This class has been generated  on 26.02.2023 12:37:06 in client 100
+*&* This class has been generated  on 04.03.2023 07:16:21 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1574,7 +1574,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~GET_ENTITYSET.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TMP_ENTITYSET_BASE
-*&* This class has been generated on 26.02.2023 12:37:06 in client 100
+*&* This class has been generated on 04.03.2023 07:16:21 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -1971,7 +1971,7 @@ CASE lv_entityset_name.
   method /IWBEP/IF_MGW_APPL_SRV_RUNTIME~UPDATE_ENTITY.
 *&----------------------------------------------------------------------------------------------*
 *&  Include           /IWBEP/DPC_TEMP_UPD_ENTITY_BASE
-*&* This class has been generated on 26.02.2023 12:37:06 in client 100
+*&* This class has been generated on 04.03.2023 07:16:21 in client 100
 *&*
 *&*       WARNING--> NEVER MODIFY THIS CLASS <--WARNING
 *&*   If you want to change the DPC implementation, use the
@@ -2405,12 +2405,13 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
     TYPES ty_I_CURRENCY_3 TYPE i_currency ##NEEDED. " reference for where-used list
     TYPES ty_I_CURRENCYTEXT_4 TYPE i_currencytext ##NEEDED. " reference for where-used list
     TYPES ty_ZC_FLIGHT_5 TYPE zc_flight ##NEEDED. " reference for where-used list
-    TYPES ty_ZC_FLIGHTSCHEDULE_6 TYPE zc_flightschedule ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_AIRLINE_7 TYPE zi_airline ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_BOOKING_8 TYPE zi_booking ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_FLIGHTNUMBERVH_9 TYPE zi_flightnumbervh ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_TICKET_10 TYPE zi_ticket ##NEEDED. " reference for where-used list
-    TYPES ty_ZI_VH_GEOCITY_11 TYPE zi_vh_geocity ##NEEDED. " reference for where-used list
+    TYPES ty_ZC_FLIGHTCOUNTERPERYEAR_6 TYPE zc_flightcounterperyear ##NEEDED. " reference for where-used list
+    TYPES ty_ZC_FLIGHTSCHEDULE_7 TYPE zc_flightschedule ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_AIRLINE_8 TYPE zi_airline ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_BOOKING_9 TYPE zi_booking ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_FLIGHTNUMBERVH_10 TYPE zi_flightnumbervh ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_TICKET_11 TYPE zi_ticket ##NEEDED. " reference for where-used list
+    TYPES ty_ZI_VH_GEOCITY_12 TYPE zi_vh_geocity ##NEEDED. " reference for where-used list
 
     DATA(lv_sadl_xml) =
                |<?xml version="1.0" encoding="utf-16"?>| &
@@ -2448,6 +2449,8 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
                | <sadl:association name="TO_AIRLINE" binding="_AIRLINE" target="ZI_Airline" cardinality="one" />| &
                | <sadl:association name="TO_FLIGHT" binding="_FLIGHT" target="ZC_Flight" cardinality="zeroToMany" />| &
                | <sadl:association name="TO_FLIGHTCOUNTERPERYEAR" binding="_FLIGHTCOUNTERPERYEAR" target="ZC_FlightCounterPerYear" cardinality="zeroToMany" />| &
+               | <sadl:association name="TO_VH_GEOCITY_FROM" binding="_VH_GEOCITY_FROM" target="ZI_VH_GeoCity" cardinality="zeroToOne" />| &
+               | <sadl:association name="TO_VH_GEOCITY_TO" binding="_VH_GEOCITY_TO" target="ZI_VH_GeoCity" cardinality="zeroToOne" />| &
                |</sadl:structure>| &
                |<sadl:structure name="ZI_Airline" dataSource="ZI_AIRLINE" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
@@ -2460,10 +2463,10 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
                |</sadl:structure>| &
                |<sadl:structure name="ZI_FlightNumberVH" dataSource="ZI_FLIGHTNUMBERVH" maxEditMode="RO" exposure="TRUE" >| &
                | <sadl:query name="SADL_QUERY">| &
-               | </sadl:query>| &
-               |</sadl:structure>| &
-               |<sadl:structure name="ZI_Ticket" dataSource="ZI_TICKET" maxEditMode="RO" exposure="TRUE" >| .
+               | </sadl:query>| .
     lv_sadl_xml = |{ lv_sadl_xml }| &
+             |</sadl:structure>| &
+             |<sadl:structure name="ZI_Ticket" dataSource="ZI_TICKET" maxEditMode="RO" exposure="TRUE" >| &
              | <sadl:query name="SADL_QUERY">| &
              | </sadl:query>| &
              |</sadl:structure>| &
@@ -2474,7 +2477,7 @@ lo_logger = /iwbep/if_mgw_conv_srv_runtime~get_logger( ).
              |</sadl:resultSet>| &
              |</sadl:definition>| .
     ro_dpc = cl_sadl_gw_dpc_factory=>create_for_sadl( iv_sadl_xml   = lv_sadl_xml
-               iv_timestamp         = 20230226053703
+               iv_timestamp         = 20230304001618
                iv_uuid              = 'ZUI_FLIGHTSCHEDULE'
                io_context           = me->mo_context ).
   endmethod.

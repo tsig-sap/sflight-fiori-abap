@@ -19,6 +19,11 @@ define view ZC_FlightSchedule
                                                                          and $projection.FlightNumber = _Flight.FlightNumber
   association [0..*] to ZC_FlightCounterPerYear as _FlightCounterPerYear on  $projection.Airline      = _FlightCounterPerYear.Airline
                                                                          and $projection.FlightNumber = _FlightCounterPerYear.FlightNumber
+
+  association        to ZI_VH_GeoCity           as _VH_GeoCity_From      on  $projection.CityFrom    = _VH_GeoCity_From.City
+                                                                         and $projection.CountryFrom = _VH_GeoCity_From.Country
+  association        to ZI_VH_GeoCity           as _VH_GeoCity_To        on  $projection.CityTo    = _VH_GeoCity_To.City
+                                                                         and $projection.CountryTo = _VH_GeoCity_To.Country
 {
       @UI.facet: [{
         purpose: #HEADER,
@@ -134,6 +139,16 @@ define view ZC_FlightSchedule
 
       @UI.identification.position: 6
       Period,
+
+      fltp_to_dec(_VH_GeoCity_From.Longitude as abap.dec(10,5))*-1 as FromLongitude,
+      fltp_to_dec(_VH_GeoCity_From.Latitude as abap.dec(10,5))     as FromLatitude,
+
+      fltp_to_dec(_VH_GeoCity_To.Longitude as abap.dec(10,5))*-1   as ToLongitude,
+      fltp_to_dec(_VH_GeoCity_To.Latitude as abap.dec(10,5))       as ToLatitude,
+
+      _VH_GeoCity_From,
+
+      _VH_GeoCity_To,
 
       /* Associations */
       _Flight,

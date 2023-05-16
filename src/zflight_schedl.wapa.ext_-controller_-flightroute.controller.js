@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(t){"use strict";return t.extend("sflight.flightschedule.ext.FlightRoute",{onInit:function(){}})});                                                                                                       
