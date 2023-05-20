@@ -6,6 +6,7 @@
 @VDM.viewType: #CONSUMPTION
 
 @ObjectModel.createEnabled: true
+@ObjectModel.updateEnabled: true
 
 define view ZC_Flight_V2
   as select from ZI_Flight_V2

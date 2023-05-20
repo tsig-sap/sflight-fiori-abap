@@ -7,13 +7,17 @@
 
 define view ZI_Booking_2
   as select from ZI_Booking
+  association[0..1] to I_CalendarMonth as _CalendarMonth on $projection.FlightMonth = _CalendarMonth.CalendarMonth
 {
   key Airline,
   key FlightNumber,
   key FlightDate,
   key BookingId,
-      cast( substring(FlightDate, 1, 4) as calendaryear)  as FlightYear,
-      cast( substring(FlightDate, 5, 2) as calendarmonth) as FlightMonth,
+      FlightYear,
+
+      @ObjectModel.foreignKey.association: '_CalendarMonth'
+      FlightMonth,
+
       Customer,
       CustomerType,
       Smoker,
@@ -34,5 +38,9 @@ define view ZI_Booking_2
       PassengerFormOfAddress,
       PassengerBirthDate,
       /* Associations */
-      _Currency
+      _Airline,
+      _FlightSchedule,
+      _ForeignCurrency,
+      _LocalCurrency,
+      _CalendarMonth
 }

@@ -8,39 +8,28 @@
 
 define view ZI_BookingCube
   as select from ZI_Booking_2
-  association to ZI_Airline      as _Airline       on $projection.Airline = _Airline.Airline
-  association to I_CalendarMonth as _CalendarMonth on $projection.FlightMonth = _CalendarMonth.CalendarMonth
-  association to I_Currency      as _Currency      on $projection.LocalCurrency = _Currency.Currency
 {
-      @ObjectModel.foreignKey.association: '_Airline'
   key Airline,
+      _Airline,
+
   key FlightNumber,
+      _FlightSchedule,
+
   key FlightDate,
   key BookingId,
 
       FlightYear,
 
-      @ObjectModel.foreignKey.association: '_CalendarMonth'
       FlightMonth,
-      Customer,
-      CustomerType,
-      Smoker,
-      Invoice,
-      Class,
+      _CalendarMonth,
+
+      @Aggregation.default: #SUM
+      PriceForeignCurrency,
+      ForeignCurrency,
+      _ForeignCurrency,
+
       @Aggregation.default: #SUM
       PriceLocalCurrency,
       LocalCurrency,
-      OrderDate,
-      Counter,
-      AgencyNumber,
-      Cancelled,
-      Reserved,
-      PassengerName,
-      PassengerFormOfAddress,
-      PassengerBirthDate,
-
-      /* Associations */
-      _Airline,
-      _CalendarMonth,
-      _Currency
+      _LocalCurrency
 }
